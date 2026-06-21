@@ -120,18 +120,16 @@ Downloading certifi-2026.6.17-py3-none-any.whl (133 kB)
 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
 Installing collected packages: typing-inspection, pydantic-core, idna, h11, certifi, annotated-types, pydantic, httpcore, anyio, httpx, ollama
 Successfully installed annotated-types-0.7.0 anyio-4.14.0 certifi-2026.6.17 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 ollama-0.6.2 pydantic-2.13.4 pydantic-core-2.46.4 typing-inspection-0.4.2
-```
-<br>
-```
+
+
 #curl http://localhost:11434/api/tags
+
 
 #curl http://localhost:11434/api/generate -d '{
   "model":"deepseek-r1:8b",
   "prompt":"hello"
 }'
-```
-<br>
-```
+************************
 for m in $(ollama list | awk 'NR>1 {print $1}'); do
     echo "=== $m ==="
     ollama show --modelfile "$m" | grep "^FROM"
@@ -142,8 +140,7 @@ FROM /home/user/.ollama/models/blobs/sha256-0800cbac9c2064dde519420e75e512a83cb3
 FROM /home/user/.ollama/models/blobs/sha256-e6a7edc1a4d7d9b2de136a221a57336b76316cfe53a252aeba814496c5ae439d
 === deepseek-r1:8b ===
 FROM /home/user/.ollama/models/blobs/sha256-e6a7edc1a4d7d9b2de136a221a57336b76316cfe53a252aeba814496c5ae439d
-
-
+************************
 (py3_env) user@lab:~/Documents/rag-model-from-scratch$ ollama list
 NAME                           ID              SIZE      MODIFIED       
 embeddinggemma:latest          85462619ee72    621 MB    7 minutes ago     
@@ -152,4 +149,3 @@ deepseek-r1:8b                 6995872bfe4c    5.2 GB    28 minutes ago
 (py3_env) user@lab:~/Documents/rag-model-from-scratch$ ollama show --modelfile deepseek-r1:8b| grep "^FROM"
 FROM /home/user/.ollama/models/blobs/sha256-e6a7edc1a4d7d9b2de136a221a57336b76316cfe53a252aeba814496c5ae439d
 ```
----------------------------------------------------------------------
