@@ -2,4 +2,5 @@
 sqlalchemy
 pgvector
 psycopg2
-
+embeddinggemma
+wikipedia

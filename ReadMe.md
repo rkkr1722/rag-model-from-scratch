@@ -151,3 +151,20 @@ deepseek-r1:8b                 6995872bfe4c    5.2 GB    28 minutes ago
 (py3_env) user@lab:~/Documents/rag-model-from-scratch$ ollama show --modelfile deepseek-r1:8b| grep "^FROM"
 FROM /home/user/.ollama/models/blobs/sha256-e6a7edc1a4d7d9b2de136a221a57336b76316cfe53a252aeba814496c5ae439d
 ```
+
+```
+import requests
+def search_wiki(query, limit=20):
+    url = "https://en.wikipedia.org/w/api.php"
+    params = {
+        "action": "query",
+        "list": "search",
+        "srsearch": query,
+        "format": "json",
+        "srlimit": limit
+    }
+
+    r = requests.get(url, params=params, timeout=10)
+    r.raise_for_status()
+    return [item["title"] for item in r.json()["query"]["search"]]
+```
