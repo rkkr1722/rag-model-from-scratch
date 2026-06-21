@@ -62,7 +62,7 @@ answer
 "why did the chicken cross the road ? The chicken"
 "why did the chicken cross the road ? The chiken cross"
 
-`(py3_env) user@lab:~/Documents/rag-model-from-scratch$ ollama create custom_deepseek -f ModelFile 
+```(py3_env) user@lab:~/Documents/rag-model-from-scratch$ ollama create custom_deepseek -f ModelFile 
 pulling f64cd5418e4b 100% ▕███████████████████████████████████████████████████████████████▏  487 B                         
 verifying sha256 digest 
 writing manifest 
@@ -118,15 +118,17 @@ Downloading certifi-2026.6.17-py3-none-any.whl (133 kB)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 10.4 MB/s eta 0:00:00
 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
 Installing collected packages: typing-inspection, pydantic-core, idna, h11, certifi, annotated-types, pydantic, httpcore, anyio, httpx, ollama
-Successfully installed annotated-types-0.7.0 anyio-4.14.0 certifi-2026.6.17 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 ollama-0.6.2 pydantic-2.13.4 pydantic-core-2.46.4 typing-inspection-0.4.2`
+Successfully installed annotated-types-0.7.0 anyio-4.14.0 certifi-2026.6.17 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.18 ollama-0.6.2 pydantic-2.13.4 pydantic-core-2.46.4 typing-inspection-0.4.2
+```
 
 ---------------------------------------------------------------------
-curl http://localhost:11434/api/tags
+```#curl http://localhost:11434/api/tags
 
-curl http://localhost:11434/api/generate -d '{
+#curl http://localhost:11434/api/generate -d '{
   "model":"deepseek-r1:8b",
   "prompt":"hello"
 }'
+```
 ---------------------------------------------------------------------
 for m in $(ollama list | awk 'NR>1 {print $1}'); do
     echo "=== $m ==="
