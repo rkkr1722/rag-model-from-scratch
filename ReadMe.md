@@ -24,7 +24,8 @@ The embeddings for "hello" and "hi" will be closer to each other than "hello" an
 
 **Simple analogy - embedding**
 
-`Imagine every sentence is a point on a huge map.
+```
+Imagine every sentence is a point on a huge map.
           vehicle
              *
              |
@@ -32,7 +33,8 @@ The embeddings for "hello" and "hi" will be closer to each other than "hello" an
              |
  greeting *--* hello
              *
-             hi`
+             hi
+```
 
 **Your current flow**
 
