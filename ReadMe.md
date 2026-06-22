@@ -9,7 +9,7 @@
 #  embedding
 An embedding is a way to convert text (or images, audio, etc.) into a list of numbers (a vector) that captures its meaning.
 
-**Why do we need embeddings?**
+**Why do we need embeddings?** <\n>
 Computers don't naturally understand meaning. They only work with numbers.
 Embeddings transform text into numbers so that similar meanings end up close together in vector space.
 
@@ -22,10 +22,9 @@ Text	Meaning
 
 The embeddings for "hello" and "hi" will be closer to each other than "hello" and "car".
 
-**Simple analogy - embedding**
-
-```
+**Simple analogy :** <\n>
 Imagine every sentence is a point on a huge map.
+```
           vehicle
              *
              |
@@ -169,4 +168,41 @@ def search_wiki(query, limit=20):
     r = requests.get(url, params=params, timeout=10)
     r.raise_for_status()
     return [item["title"] for item in r.json()["query"]["search"]]
+```
+
+# setup database and retrieving vectors and files
+
+```
+# sudo -u postgres psql
+postgres=# alter user postgres password 'postgres';
+postgres=#\q
+
+user@lab:~$ psql -Upostgres
+Password for user postgres: 
+psql (16.14 (Ubuntu 16.14-0ubuntu0.24.04.1))
+Type "help" for help.
+postgres=# 
+postgres=# create database text_embeddings owner postgres;
+postgres=# grant all privileges on database text_embeddings to postgres;
+postgres=# \c text_embeddings
+You are now connected to database "text_embeddings" as user "postgres".
+text_embeddings=# create extension vector;
+CREATE EXTENSION
+```
+
+```
+(py3_env) user@lab:~/Documents/rag-model-from-scratch$ python3
+Python 3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+Ctrl click to launch VS Code Native REPL
+>>> import nltk
+>>> nltk.download("punkt")
+[nltk_data] Downloading package punkt to /home/user/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+True
+>>> nltk.download("punkt_tab")
+[nltk_data] Downloading package punkt_tab to /home/user/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt_tab.zip.
+True
+
 ```

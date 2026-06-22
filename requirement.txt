@@ -2,5 +2,7 @@
 sqlalchemy
 pgvector
 psycopg2
-embeddinggemma
+#embeddinggemma
 wikipedia
+docling #convert into vector
+nltk
